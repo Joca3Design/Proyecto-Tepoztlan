@@ -1,27 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Eliminamos el "/" inicial para que busque en la carpeta actual
-    fetch('layout.html') 
-        .then(response => {
-            if (!response.ok) throw new Error('Error al cargar layout.html');
-            return response.text();
-        })
+    fetch('layout.html')
+        .then(response => response.text())
         .then(html => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            // ... resto de tu código de inyección ...
+            // 1. Extraer los contenidos de header y footer
             const headerHTML = doc.querySelector('header').innerHTML;
             const footerHTML = doc.querySelector('footer').innerHTML;
             
+            // 2. Extraer el div de créditos (el elemento completo con su clase)
+            const desktopCredits = doc.querySelector('.desktop-credits');
+            
+            // 3. Inyectar en la página actual
             document.querySelector('header').innerHTML = headerHTML;
             document.querySelector('footer').innerHTML = footerHTML;
 
-            // Inyectar créditos si existen
-            const desktopCredits = doc.querySelector('.desktop-credits');
+            // 4. Inyectar los créditos al final del body si existen en el layout
             if (desktopCredits && !document.querySelector('.desktop-credits')) {
                 document.body.insertAdjacentHTML('beforeend', desktopCredits.outerHTML);
             }
 
+            // Activar el menú
             initNavbar();
         })
         .catch(error => console.error('Error loading components:', error));
