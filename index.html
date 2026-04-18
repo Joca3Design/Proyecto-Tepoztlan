@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tepoztlán Mágico - Barroco</title>
+    <link preconnect href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://pueblosmagicos.mexicodesconocido.com.mx/wp-content/themes/pueblosmagicos/img/icons/favicon.ico" rel="shortcut icon">
+    <style>
+        .hero-btn{
+            background: var(--accent-gradient);
+            padding: 10px 30px;
+            border: 2px solid wheat;
+            border-radius: 30px;
+            color: var(--white);
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <section class="hero">
+            <h1>Visita Tepoztlán</h1>
+            <div style="width: 50px; height: 2px; background: var(--bg-color); margin: 20px auto;"></div>
+            <a href=""></a>
+            <a class="hero-btn" href="./">Descubre la magia <i class="fa fa-caret-right" aria-hidden="true"></i>
+</a>
+        </section>
+    </main> 
+
+    <footer></footer>
+    <div style="display:none;">
+        <img src="https://images.trvl-media.com/place/6048997/3b7fd0d7-880e-4989-8ae9-a804e4f43fb0.jpg" alt="">
+        <img src="https://www.mexperience.com/wp-content/uploads/Tepoztlan-View-from-Posada-Tepozteco-1200x800.jpg" alt="">
+        <img src="https://visitmexico.com/media/usercontent/6809744b9f863-1614187872_gmxdot_jpg" alt="">
+    </div>
+    <script>
+function initHeroSlider() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+
+    // URLs Corregidas (sin textos extra al inicio)
+    const images = [
+        'url("https://images.trvl-media.com/place/6048997/3b7fd0d7-880e-4989-8ae9-a804e4f43fb0.jpg")',
+        'url("https://www.mexperience.com/wp-content/uploads/Tepoztlan-View-from-Posada-Tepozteco-1200x800.jpg")',
+        'url("https://visitmexico.com/media/usercontent/6809744b9f863-1614187872_gmxdot_jpg")'
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+        currentIndex = (currentIndex + 1) % images.length;
+        heroSection.style.backgroundImage = images[currentIndex];
+    }
+
+    // Iniciamos el intervalo
+    setInterval(changeBackground, 5000);
+}
+
+// IMPORTANTE: Asegúrate de llamar a la función al final
+initHeroSlider();
+</script>
+   <script src="./include.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Cristóbal App Clone</title>
+    <link preconnect href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Activities Grid */
+        .activities-grid {
+            padding: 20px 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-top: 60px;
+        }
+
+        .card {
+            height: 300px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.7) contrast(0.7);
+            transition: all ease .5s;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            filter: drop-shadow(2px 4px 6px black);
+        }
+
+        .card-content i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card-content span {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .card:hover img{
+            filter: brightness(1) contrast(1);
+            transform: scale(1.2);
+            filter: blur(1);
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <div class="activities-grid">
+        <div class="card">
+            <img src="https://www.inah.gob.mx/images/zonas/morelos/tepozteco/20220811_za_tepozteco_head.jpg" alt="Outdoor">
+            <div class="card-content">
+                <i class="fa-solid fa-wind"></i>
+                <span>Aire libre</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://0201.nccdn.net/1_2/000/000/185/870/tepoznieves-6-1280x853.jpeg" alt="Interior">
+            <div class="card-content">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Interiores</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://landingtours.com.mx/wp-content/uploads/2022/03/tepozotlan-en-cuatrimoto-landing-tours-2.jpg" alt="Tours">
+            <div class="card-content">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Tours</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWchLkypZnns9ZfF7El7tmTqS6qEUu5nMdJw&s" alt="Excursions">
+            <div class="card-content">
+                <i class="fa fa-bus" aria-hidden="true"></i>
+                <span>Excursiones</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWchLkypZnns9ZfF7El7tmTqS6qEUu5nMdJw&s" alt="Excursions">
+            <div class="card-content">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span>Artesanías y Compras</span>
+            </div>
+        </div>
+
+    </div>
+    
+    <footer></footer>
+
+    <script src="./include.js"></script>
+</body>
+</html>

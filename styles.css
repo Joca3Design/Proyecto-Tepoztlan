@@ -1,0 +1,374 @@
+:root {
+    --accent-gradient: linear-gradient(135deg, #3b1f2b, #7b3f61);
+    --text-color: #261417;
+    --bg-color: #f3e3c3;
+    --white: #ffffff;
+    --gold-soft: #d4af37; /* Toque dorado para el estilo barroco */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Espacio exterior (lo que se verá en blanco) */
+html {
+}
+
+/* Máscaras para ocultar elementos fuera del marco móvil */
+html::before,
+html::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: calc(50% - 225px); /* Cubre exactamente hasta el borde del body */
+    background: black; /* Mismo color que el fondo de tu html */
+    z-index: 3000; /* Superior al z-index del nav-overlay (2000) */
+    pointer-events: none; /* Permite hacer clic a través de ellas si fuera necesario */
+}
+
+html::before {
+    left: 0;
+}
+
+html::after {
+    right: 0;
+}
+
+body {
+    max-width: 450px; /* Ancho estándar de un dispositivo móvil grande */
+    margin: 0 auto;   /* Centra la "pantalla" en el escritorio */
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    position: relative;
+    box-shadow: 0 0 40px rgba(0,0,0,0.1); /* Sombra para dar profundidad de 'dispositivo' */
+    overflow-x: hidden;
+}
+
+/* --- Tipografía Reusable --- */
+h1, h2, h3, .cursive {
+    font-family: sans-serif;
+}
+
+/* --- Header y Navbar --- */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 450px; /* Debe coincidir con el max-width del body */
+    left: 50%;
+    transform: translateX(-50%); /* Truco para centrar elementos fixed */
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(243, 227, 195, 0.95);
+    border-bottom: 2px solid #3b1f2b;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Menú Desplegable (Sándwich) */
+/* Menú Desplegable (Sándwich) */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    width: 85%;
+    max-width: 382px; /* 85% de 450px */
+    height: 100%;
+    background: var(--accent-gradient);
+    z-index: 2000;
+    
+    /* Posicionamiento base para móvil real */
+    left: 0; 
+    transform: translateX(-100%); /* Escondido totalmente a la izquierda */
+    
+    /* El "seguro" de calidad: si no está activo, es invisible y no recibe clics */
+    visibility: hidden;
+    opacity: 0;
+    
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, visibility 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+}
+
+/* Alineación para escritorio: lo anclamos al borde del contenedor de 450px */
+@media (min-width: 451px) {
+    .nav-overlay {
+        left: calc(50% - 225px); 
+    }
+}
+
+/* Estado Activo: Entra al marco y se vuelve visible */
+.nav-overlay.active {
+    transform: translateX(-0.8%);
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.nav-logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nav-logo img {
+    width: 150px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)) invert();
+
+}
+
+.nav-links {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(243, 227, 195, 0.2);
+}
+
+.nav-links a {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: 'Pinyon Script', cursive;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.profile-btn {
+    background: var(--bg-color);
+    color: #3b1f2b;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'EB Garamond', serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+/* Estilos para la información de autoría en Desktop */
+.desktop-credits {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #ffffff; /* Texto blanco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sans-serif */
+    font-size: 13px;
+    text-align: right;
+    line-height: 1.4;
+    z-index: 4000; /* Por encima de las máscaras laterales */
+    max-width: 300px;
+    display: none; /* Oculto por defecto */
+    opacity: 0.8; /* Ligeramente discreto para no distraer */
+}
+
+.desktop-credits strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Solo se muestra si la pantalla es lo suficientemente ancha 
+   (Ancho del app 450px + espacio para el texto) */
+@media (min-width: 1024px) {
+    .desktop-credits {
+        display: block;
+    }
+}
+
+/* --- Hero Section --- */
+.hero {
+    width: 100%;
+    min-height: 95vh; /* O la altura que prefieras para tu sección principal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    
+    /* Configuración de imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Imagen inicial (Igual a la primera del array de JS) */
+    background-image: url("https://images.trvl-media.com/place/6048997/3b7fd0d7-880e-4989-8ae9-a804e4f43fb0.jpg");
+    
+    /* Suavidad en la transición */
+    transition: background-image 1.5s ease-in-out;
+    
+    color: var(--white);
+    position: relative;
+}
+
+/* Opcional: Oscurecer un poco el fondo para que el texto se lea mejor */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero h1, .hero div, .hero .hero-btn {
+    position: relative;
+    z-index: 2; /* Para que el texto quede sobre la capa oscura */
+}
+.hero h1 {
+    color: var(--bg-color);
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    filter: drop-shadow(2px 4px 6px black);
+    line-height: 70px;
+    margin: 20px;
+}
+
+.hero-subtitle {
+    color: var(--bg-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+/* --- Secciones Genéricas (Estilos Reusables) --- */
+.content-section {
+    padding: 60px 25px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: #7b3f61;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid #d4af37;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* --- Close Menu Button --- */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--bg-color);
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+    padding: 3rem 0 1rem;
+    padding-top: 0;
+}
+
+.footer-content {
+    font-size: smaller;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 30px;
+    border-top: 1px solid ;
+}
+
+.footer-column h3 {
+    color: var(--amarillo);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: x-large;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--amarillo);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--amarillo);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--blanco);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--amarillo);
+    color: var(--verde-oscuro);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p{
+    font-size: smaller;
+}
