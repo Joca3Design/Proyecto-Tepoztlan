@@ -291,6 +291,7 @@ footer {
     color: var(--blanco);
     padding: 3rem 0 1rem;
     padding-top: 0;
+    font-size: smaller;
 }
 
 .footer-content {
@@ -305,7 +306,7 @@ footer {
 
 .footer-column h3 {
     color: var(--amarillo);
-    margin-bottom: 1.5rem;
+    margin-bottom: 10px;
     position: relative;
     padding-bottom: 10px;
     font-size: x-large;
