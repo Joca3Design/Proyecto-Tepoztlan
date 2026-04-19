@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artesanías - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .container-artesanias {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: var(--accent-gradient);
+            margin-bottom: 5px;
+        }
+
+        .category-header p {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+
+        /* Filtros de Categoría */
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+        .filter-tags::-webkit-scrollbar { display: none; }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid var(--gold-soft);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            color: var(--text-color);
+            font-family: 'EB Garamond', serif;
+            transition: all 0.3s;
+        }
+
+        .tag.active {
+            background: var(--accent-gradient);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* Grid de Productos Artesanales */
+        .artisan-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .artisan-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image {
+            height: 220px;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .craft-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(212, 175, 55, 0.95);
+            color: #3b1f2b;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.5rem;
+            color: #3b1f2b;
+            margin-bottom: 8px;
+        }
+
+        .artisan-name {
+            font-size: 0.75rem;
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f3e3c3;
+            padding-top: 15px;
+        }
+
+        .location {
+            font-size: 0.8rem;
+            color: #7b3f61;
+        }
+
+        .btn-view {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .btn-view:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="container-artesanias">
+        <section class="category-header">
+            <h2>Artesanías</h2>
+            <p>Manos que transforman la tradición</p>
+        </section>
+
+        <div class="filter-tags">
+            <span class="tag active">Todo</span>
+            <span class="tag">Madera Tallada</span>
+            <span class="tag">Textiles</span>
+            <span class="tag">Barro Rojo</span>
+            <span class="tag">Papel Amate</span>
+        </div>
+
+        <div class="artisan-grid">
+            
+            <article class="artisan-card">
+                <div class="card-image">
+                    <img src="https://resources.sears.com.mx/medios-plazavip/mkt/62215b438663d_tepoz6jpg.jpg?scale=500&qlty=75" alt="Teponaztli">
+                    <span class="craft-badge">Pieza Única</span>
+                </div>
+                <div class="card-info">
+                    <span class="artisan-name">Familia Rodríguez - Maestros Talladores</span>
+                    <h3>Teponaztli Ancestral</h3>
+                    <p>Instrumentos musicales de madera de encino, tallados a mano con motivos prehispánicos que guardan el eco del valle.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fas fa-store"></i> Mercado de Artesanías</span>
+                        <a href="#" class="btn-view">Ver Detalles</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="artisan-card">
+                <div class="card-image">
+                    <img src="https://arteypasiondemexico.com.mx/wp-content/uploads/2025/03/bata-de-telar3.jpg" alt="Textiles">
+                    <span class="craft-badge">Hecho a Mano</span>
+                </div>
+                <div class="card-info">
+                    <span class="artisan-name">Cooperativa Textil Hueyacapan</span>
+                    <h3>Huipiles de Telar de Cintura</h3>
+                    <p>Tejidos con hilos teñidos naturalmente, cada patrón cuenta una historia diferente sobre la fauna y flora de la región.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fas fa-store"></i> Centro Cultural</span>
+                        <a href="#" class="btn-view">Ver Tallas</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="artisan-card">
+                <div class="card-image">
+                    <img src="https://artesaniasxalitla.com/wp-content/uploads/2024/06/WhatsApp-Image-2024-06-04-at-3.22.23-PM2.jpeg" alt="Papel Amate">
+                    <span class="craft-badge">Tradición Milenaria</span>
+                </div>
+                <div class="card-info">
+                    <span class="artisan-name">Taller Tradicional Amate</span>
+                    <h3>Pintura en Papel Amate</h3>
+                    <p>Representaciones detalladas de la vida cotidiana y mitología, plasmadas sobre corteza de árbol machacada.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fas fa-store"></i> Calle del Tepozteco</span>
+                        <a href="#" class="btn-view">Explorar</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>

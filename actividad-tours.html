@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours y Recorridos - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .container-tours {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: var(--accent-gradient);
+            margin-bottom: 5px;
+        }
+
+        .category-header p {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+
+        /* Filtros Rápidos */
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+        .filter-tags::-webkit-scrollbar { display: none; }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid var(--gold-soft);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            color: var(--text-color);
+            font-family: 'EB Garamond', serif;
+            transition: all 0.3s;
+        }
+
+        .tag.active {
+            background: var(--accent-gradient);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* Tarjetas de Tours */
+        .tour-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image {
+            height: 180px;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .duration-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #3b1f2b;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-gradient);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            border: 1px solid var(--gold-soft);
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.5rem;
+            color: #3b1f2b;
+            margin-bottom: 8px;
+        }
+
+        .guia-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: #d4af37;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .availability {
+            font-size: 0.75rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .btn-book {
+            background: #3b1f2b;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-book:hover {
+            background: #d4af37;
+            color: #3b1f2b;
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="container-tours">
+        <section class="category-header">
+            <h2>Tours</h2>
+            <p>Experiencias narradas por expertos</p>
+        </section>
+
+        <div class="filter-tags">
+            <span class="tag active">Todos</span>
+            <span class="tag">Históricos</span>
+            <span class="tag">Nocturnos</span>
+            <span class="tag">Gastronómicos</span>
+            <span class="tag">Místicos</span>
+        </div>
+
+        <div class="tours-list">
+            
+            <article class="tour-card">
+                <div class="card-image">
+                    <img src="https://mxcity.mx/wp-content/uploads/2016/10/tepozteco-1.jpg" alt="Tour Histórico">
+                    <span class="duration-badge"><i class="far fa-clock"></i> 4 Horas</span>
+                    <span class="price-badge">$450 p/p</span>
+                </div>
+                <div class="card-info">
+                    <span class="guia-tag"><i class="fas fa-certificate"></i> Guía Certificado</span>
+                    <h3>Leyendas del Viejo Pueblo</h3>
+                    <p>Un recorrido a pie por los callejones más antiguos descubriendo la historia oculta de los barrios tradicionales.</p>
+                    <div class="card-meta">
+                        <span class="availability">Disponible Hoy</span>
+                        <a href="#" class="btn-book">Reservar Lugar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="card-image">
+                    <img src="https://pueblosmagicos.mexicodesconocido.com.mx/wp-content/uploads/2021/04/tepoztlan-morelos-mexico.jpg" alt="Tour Nocturno">
+                    <span class="duration-badge"><i class="far fa-clock"></i> 2.5 Horas</span>
+                    <span class="price-badge">$380 p/p</span>
+                </div>
+                <div class="card-info">
+                    <span class="guia-tag"><i class="fas fa-certificate"></i> Experiencia VIP</span>
+                    <h3>Noche de Estrellas y Misticismo</h3>
+                    <p>Observación astronómica desde un mirador privado con degustación de mezcal artesanal y relatos locales.</p>
+                    <div class="card-meta">
+                        <span class="availability">Solo Fin de Semana</span>
+                        <a href="#" class="btn-book">Reservar Lugar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="card-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A6UuL4L_rB1pIu_S-3N_Vv-S9UuD5l5lAg&s" alt="Tour Gastronómico">
+                    <span class="duration-badge"><i class="far fa-clock"></i> 3 Horas</span>
+                    <span class="price-badge">$550 p/p</span>
+                </div>
+                <div class="card-info">
+                    <span class="guia-tag"><i class="fas fa-certificate"></i> Gastronomía Local</span>
+                    <h3>Ruta del Sabor Ancestral</h3>
+                    <p>Visita tres cocinas tradicionales y aprende el proceso de elaboración del itacate y el mole tepozteco.</p>
+                    <div class="card-meta">
+                        <span class="availability">Quedan 4 Lugares</span>
+                        <a href="#" class="btn-book">Reservar Lugar</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>
