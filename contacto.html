@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .contacto-container {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .contacto-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contacto-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: #3b1f2b;
+            margin-bottom: 5px;
+        }
+
+        .contacto-header p {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        /* Tarjetas de Información Directa */
+        .info-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-card i {
+            font-size: 1.5rem;
+            color: #7b3f61;
+            margin-bottom: 10px;
+        }
+
+        .info-card span {
+            display: block;
+            font-size: 0.75rem;
+            font-family: 'EB Garamond', serif;
+            color: #555;
+        }
+
+        /* Formulario Estilizado */
+        .form-section {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--gold-soft);
+            box-shadow: 0 10px 30px rgba(59, 31, 43, 0.1);
+        }
+
+        .form-section h3 {
+            font-family: 'EB Garamond', serif;
+            color: #3b1f2b;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f3e3c3;
+            padding-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 5px;
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+        }
+
+        .input-group input, 
+        .input-group select, 
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            background: #fafafa;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus, 
+        .input-group select:focus, 
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-soft);
+            background: white;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 15px;
+            border: 1px solid var(--gold-soft);
+            border-radius: 10px;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 31, 43, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="contacto-container">
+        <section class="contacto-header">
+            <h2>Escríbenos</h2>
+            <p>Atención al Turista - Ayuntamiento</p>
+        </section>
+
+        <div class="info-cards-grid">
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <span>739 395 0000</span>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <span>turismo@tepoz.gob.mx</span>
+            </div>
+        </div>
+
+        <section class="form-section">
+            <h3>Centro de Atención</h3>
+            <form action="#">
+                <div class="input-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Tu nombre..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="email@ejemplo.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Motivo del Mensaje</label>
+                    <select required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="sugerencia">Sugerencia para la Villa</option>
+                        <option value="queja">Reporte o Queja</option>
+                        <option value="informacion">Información Turística</option>
+                        <option value="negocio">Inscripción de Negocio</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Tu Mensaje</label>
+                    <textarea rows="5" placeholder="Cuéntanos más..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <p style="text-align: center; font-size: 0.75rem; color: #999; margin-top: 20px; font-style: italic;">
+            Tu opinión nos ayuda a preservar la magia de nuestro pueblo.
+        </p>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>
