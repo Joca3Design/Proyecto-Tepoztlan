@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interiores - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .container-interiores {
+            margin-top: 55px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: var(--accent-gradient);
+            margin-bottom: 5px;
+        }
+
+        .category-header p {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+
+        /* Filtros Rápidos */
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+        }
+        .filter-tags::-webkit-scrollbar { display: none; }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid var(--gold-soft);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            color: var(--text-color);
+            font-family: 'EB Garamond', serif;
+            transition: all 0.3s;
+        }
+
+        .tag.active {
+            background: var(--accent-gradient);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* Tarjetas de Detalle */
+        .interior-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image {
+            height: 200px;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(59, 31, 43, 0.85);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.6rem;
+            color: #3b1f2b;
+            margin-bottom: 10px;
+        }
+
+        .card-info p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .location {
+            font-size: 0.8rem;
+            color: var(--gold-soft);
+        }
+
+        .btn-ver-mas {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .btn-ver-mas:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="container-interiores">
+        <section class="category-header">
+            <h2>Interiores</h2>
+            <p>Refugios de cultura y tradición</p>
+        </section>
+
+        <div class="filter-tags">
+            <span class="tag active">Todos</span>
+            <span class="tag">Museos</span>
+            <span class="tag">Gastronomía</span>
+            <span class="tag">Spas & Temazcal</span>
+            <span class="tag">Galerías</span>
+        </div>
+
+        <div class="interiors-list">
+            
+            <article class="interior-card">
+                <div class="card-image">
+                    <img src="https://lugares.inah.gob.mx/sites/default/files/styles/cards_cuadricula_/public/2023-06/37.MONASTERIO1.jpg?itok=hUmagUyA" alt="Ex Convento de la Natividad">
+                    <span class="price-badge">Entrada Libre</span>
+                </div>
+                <div class="card-info">
+                    <h3>Ex Convento de la Natividad</h3>
+                    <p>Patrimonio de la Humanidad. Explora sus murales históricos y la paz que emana de sus muros del siglo XVI.</p>
+                    <div class="card-meta">
+                        <span class="location"><i class="fas fa-map-marker-alt"></i> Centro Histórico</span>
+                        <a href="#" class="btn-ver-mas">Explorar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="interior-card">
+                <div class="card-image">
+                    <img src="https://0201.nccdn.net/1_2/000/000/185/870/tepoznieves-6-1280x853.jpeg" alt="Tepoznieves">
+                    <span class="price-badge">$45 - $120</span>
+                </div>
+                <div class="card-info">
+                    <h3>Tepoznieves: El Sabor de los Dioses</h3>
+                    <p>Más que una heladería, es un viaje sensorial con más de 100 sabores tradicionales y exóticos.</p>
+                    <div class="card-meta">
+                        <span class="location"><i class="fas fa-map-marker-alt"></i> Av. Tepozteco</span>
+                        <a href="#" class="btn-ver-mas">Ver Menú</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="interior-card">
+                <div class="card-image">
+                    <img src="https://i0.wp.com/mexicoverde.com/wp-content/uploads/2025/12/temazcal-en-mexico-verde.jpg?fit=600%2C400&ssl=1" alt="Temazcal">
+                    <span class="price-badge">Desde $600</span>
+                </div>
+                <div class="card-info">
+                    <h3>Sanación en Temazcal</h3>
+                    <p>Vive una ceremonia ancestral de purificación con vapor de hierbas medicinales en un entorno privado.</p>
+                    <div class="card-meta">
+                        <span class="location"><i class="fas fa-map-marker-alt"></i> Valle de Atongo</span>
+                        <a href="#" class="btn-ver-mas">Reservar</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>

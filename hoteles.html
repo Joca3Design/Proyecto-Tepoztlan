@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoteles - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .container-hoteles {
+            margin-top: 60px;
+            padding: 15px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.2rem;
+            color: #3b1f2b;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0;
+        }
+
+        /* --- Panel de Filtrado Estético --- */
+        .filter-panel {
+            background: var(--white);
+            border: 1px solid var(--gold-soft);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .date-range {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .input-styled {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: 'EB Garamond', serif;
+            background: #fafafa;
+        }
+
+        .amenities-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            font-size: 0.75rem;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .chip.selected {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .btn-apply {
+            width: 100%;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(123, 63, 97, 0.3);
+        }
+
+        /* --- Tarjetas de Hoteles --- */
+        .hotel-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .hotel-img {
+            height: 180px;
+            position: relative;
+        }
+
+        .hotel-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            color: var(--gold-soft);
+            font-weight: bold;
+        }
+
+        .hotel-info {
+            padding: 15px;
+        }
+
+        .hotel-info h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #3b1f2b;
+        }
+
+        .price-tag {
+            color: var(--gold-soft);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .hotel-features {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="container-hoteles">
+        <section class="section-title">
+            <h2>Hospedaje</h2>
+        </section>
+
+        <section class="filter-panel">
+            <div class="filter-group">
+                <label><i class="fa fa-calendar-alt"></i> Disponibilidad</label>
+                <div class="date-range">
+                    <input type="text" class="input-styled" placeholder="Llegada (DD/MM)">
+                    <input type="text" class="input-styled" placeholder="Salida (DD/MM)">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label><i class="fa fa-tag"></i> Rango de Precio</label>
+                <select class="input-styled">
+                    <option>Económico ($500 - $1,200)</option>
+                    <option>Intermedio ($1,200 - $3,000)</option>
+                    <option>Luxury ($3,000+)</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Comodidades</label>
+                <div class="amenities-chips">
+                    <span class="chip selected">Alberca</span>
+                    <span class="chip">Spa</span>
+                    <span class="chip">Pet Friendly</span>
+                    <span class="chip">Wifi</span>
+                </div>
+            </div>
+
+            <button class="btn-apply">APLICAR FILTROS</button>
+        </section>
+
+        <div class="hotels-list">
+            
+            <article class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://posadadeltepozteco.com.mx/theme/img/bg5-1.jpg" alt="Hotel Posada">
+                    <div class="rating-badge">
+                        <i class="fa fa-star"></i> 4.9 (Excepcional)
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <h3>Posada del Tepozteco</h3>
+                    <span class="price-tag">$3,450 MXN / noche</span>
+                    <p style="font-size: 0.85rem;">Vistas inigualables al cerro y arquitectura colonial clásica.</p>
+                    <div class="hotel-features">
+                        <span><i class="fa fa-swimming-pool"></i> Alberca</span>
+                        <span><i class="fa fa-wifi"></i> Free Wifi</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://i0.wp.com/revistamariaorsini.com/wp-content/uploads/2022/05/casafernandaFT.jpg?fit=948%2C622&ssl=1" alt="Hotel Boutique">
+                    <div class="rating-badge">
+                        <i class="fa fa-star"></i> 4.7 (Muy Bueno)
+                    </div>
+                </div>
+                <div class="hotel-info">
+                    <h3>Hotel Boutique Casa Fernanda</h3>
+                    <span class="price-tag">$2,800 MXN / noche</span>
+                    <p style="font-size: 0.85rem;">Experiencia gourmet y relajación total en el corazón del pueblo.</p>
+                    <div class="hotel-features">
+                        <span><i class="fa fa-spa"></i> Spa</span>
+                        <span><i class="fa fa-utensils"></i> Restaurante</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>

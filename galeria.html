@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tepoztlán Mágico - Galería</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- Estilos de la Galería Instagram-Style --- */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para que luzcan las fotos en móvil */
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Relación de aspecto 1:1 */
+    overflow: hidden;
+    border-radius: 8px; /* Opcional: bordes ligeramente redondeados */
+    background-color: #000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Hover opcional */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Capa de Fade to Black */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%; /* El degradado cubre la mitad inferior */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+    pointer-events: none; /* Permite clics a través de la capa */
+}
+
+.overlay-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-name {
+    color: var(--white);
+    font-family: 'EB Garamond', serif;
+    font-size: smaller;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 2px;
+}
+
+.location {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: sans-serif;
+    font-size: small;
+}
+
+.location i{
+    font-size: small;
+}
+
+.btn{
+    background: var(--accent-gradient);
+    color: wheat;
+    border: 1px solid wheat;
+    padding: 10px 30px;
+    border-radius: 50px;
+}
+
+/* Ajuste para pantallas más anchas (Dentro del marco de 450px) */
+@media (min-width: 400px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main style="margin-top: 30px;">
+        <section class="content-section">
+            <h2 class="section-title" style="font-family: 'Pinyon Script', cursive;">Galería</h2>
+            <p>¡Interactua con las fotos y videos de otros viajeros como tu en <strong>Tepoztlán</strong>!</p>
+            <br>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/Imagenes/Galeria1.jpg" alt="Tepoztlán Vista">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+<span class="user-name">@joca23</span>
+<span class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Zona Arqueológica El Tepozteco</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="/Imagenes/Galeria2.jpg" alt="Calles Tepoztlán">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+<span class="user-name">@matvero</span>
+<span class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Tepoznieves (Sucursal Centro)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="/Imagenes/Galeria3.png" alt="Cultura">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+<span class="user-name">@it's_fer</span>
+<span class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Ex-Convento de la Natividad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://www.gob.mx/cms/uploads/article/main_image/83270/Tepoztlan_Morelos.jpg" alt="Cultura">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+<span class="user-name">@viajero_mora</span>
+<span class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Restaurante Los Colorines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://www.gob.mx/cms/uploads/article/main_image/83270/Tepoztlan_Morelos.jpg" alt="Cultura">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+<span class="user-name">@zen_pau</span>
+<span class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Mercado Municipal de Tepoztlán</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://www.gob.mx/cms/uploads/article/main_image/83270/Tepoztlan_Morelos.jpg" alt="Cultura">
+                    <div class="gallery-overlay">
+                        <div class="overlay-info">
+                            <span class="user-name">Tradiciones Vivas</span>
+                            <span class="location">@cultura_tepoz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px;">
+                <a class="btn" href="">NUEVO POST</a>
+
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="/include.js"></script>
+</body>
+</html>
