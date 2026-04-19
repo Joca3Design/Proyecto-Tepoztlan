@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Llegar - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .arrival-container {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .arrival-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .arrival-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: #3b1f2b;
+            margin-bottom: 5px;
+        }
+
+        /* Contenedor del Mapa */
+        .map-wrapper {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--gold-soft);
+            box-shadow: 0 10px 30px rgba(59, 31, 43, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: sepia(20%) contrast(1.1); /* Efecto sutil para ir con la estética crema */
+        }
+
+        /* Tarjetas de Transporte */
+        .transport-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .transport-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .transport-card:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-soft);
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .transport-info h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.2rem;
+            color: #3b1f2b;
+            margin-bottom: 5px;
+        }
+
+        .transport-info p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .btn-gps {
+            display: block;
+            text-align: center;
+            background: #3b1f2b;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-decoration: none;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-gps:hover {
+            background: var(--gold-soft);
+            color: #3b1f2b;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="arrival-container">
+        <section class="arrival-header">
+            <h2>Ubicación</h2>
+            <p style="font-family: 'EB Garamond', serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Encuentra el camino al valle</p>
+        </section>
+
+        <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18472.120989678526!2d-99.10217689780652!3d18.98728441708321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0b61dd582b75%3A0x400d7f380728b20!2s62520%20Tepoztl%C3%A1n%2C%20Mor.!5e0!3m2!1ses!2smx!4v1776640573946!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div style="display: flex; flex-direction: column; ">
+            
+
+
+        </div>
+
+        <div class="transport-grid">
+            
+            <div class="transport-card">
+                <div class="icon-circle"><i class="fas fa-car"></i></div>
+                <div class="transport-info">
+                    <h3>En Vehículo Particular</h3>
+                    <p>Toma la autopista México-Cuernavaca y desvíate hacia Cuautla/Tepoztlán. El tiempo estimado desde CDMX es de 1 hora con 20 minutos.</p>
+                </div>
+            </div>
+
+            <div class="transport-card">
+                <div class="icon-circle"><i class="fas fa-bus"></i></div>
+                <div class="transport-info">
+                    <h3>En Transporte Público</h3>
+                    <p>Desde la Terminal del Sur (Taxqueña), toma un autobús de la línea "Olla de Oro" o "Pullman de Morelos" con destino directo a Tepoztlán.</p>
+                </div>
+            </div>
+
+        </div>
+
+                <a href="https://www.google.com/maps/dir//Tepoztlán,+Morelos" target="_blank" class="btn-gps">
+            <i class="fas fa-location-arrow"></i> ABRIR EN GOOGLE MAPS
+        </a>
+        <a href="https://www.google.com/maps/dir//Tepoztlán,+Morelos" target="_blank" class="btn-gps">
+            <i class="fas fa-location-arrow"></i> ABRIR EN WAZE
+        </a>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>
