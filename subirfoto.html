@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Post - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .upload-container {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .upload-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .upload-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.2rem;
+            color: #3b1f2b;
+            margin-bottom: 5px;
+        }
+
+        /* Área de Previsualización / Subida */
+        .image-upload-area {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #fff;
+            border: 2px dashed var(--gold-soft);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(59, 31, 43, 0.05);
+        }
+
+        .image-upload-area:hover {
+            background: #fdfaf3;
+            border-style: solid;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            color: #7b3f61;
+        }
+
+        .upload-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .upload-placeholder span {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Formulario de Detalles */
+        .post-form {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 25px rgba(59, 31, 43, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'EB Garamond', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group textarea, 
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background: #fafafa;
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-group textarea:focus, 
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold-soft);
+            background: white;
+        }
+
+        .location-input {
+            position: relative;
+        }
+
+        .location-input i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7b3f61;
+        }
+
+        /* Botón de Publicar */
+        .btn-post {
+            width: 100%;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 15px;
+            border: 1px solid var(--gold-soft);
+            border-radius: 12px;
+            font-family: 'EB Garamond', serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 31, 43, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="upload-container">
+        <section class="upload-header">
+            <h2>Compartir Magia</h2>
+            <p style="font-family: 'EB Garamond', serif; color: var(--gold-soft); font-size: 0.8rem; letter-spacing: 1px;">NUEVA PUBLICACIÓN</p>
+        </section>
+
+        <div class="image-upload-area" onclick="document.getElementById('fileInput').click()">
+            <div class="upload-placeholder">
+                <i class="fa-solid fa-camera-retro"></i>
+                <span>Seleccionar Fotografía</span>
+            </div>
+            <input type="file" id="fileInput" style="display: none;" accept="image/*">
+        </div>
+
+        <form class="post-form">
+            <div class="form-group">
+                <label>Descripción / Pie de foto</label>
+                <textarea rows="4" placeholder="Cuéntanos tu experiencia en la villa..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Ubicación</label>
+                <div class="location-input">
+                    <input type="text" placeholder="¿Dónde fue capturada?">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="fb-share" style="width: auto;">
+                <label for="fb-share" style="margin-bottom: 0; text-transform: none; color: #555;">También compartir en Facebook</label>
+            </div>
+
+            <button type="submit" class="btn-post">Publicar en la Galería</button>
+        </form>
+
+        <p style="text-align: center; font-size: 0.7rem; color: #999; margin-top: 20px; font-style: italic;">
+            Al publicar, aceptas los términos de comunidad de Tepoztlán Mágico.
+        </p>
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>
