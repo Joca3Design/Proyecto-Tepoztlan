@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,141 +8,211 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./styles.css">
     <link href="https://pueblosmagicos.mexicodesconocido.com.mx/wp-content/themes/pueblosmagicos/img/icons/favicon.ico" rel="shortcut icon">
+    
     <style>
-        a{
-            color: black;
-        }
-
-        .perfil-header{
-            display: flex;
-            gap: 20px;
-            background: var(--accent-gradient);
-            color: wheat;
+        .perfil-container {
+            margin-top: 70px;
             padding: 20px;
-            border-radius: 30px;
+            animation: fadeInUp 0.8s ease-out;
         }
-        .perfil-header img{
-            height: 100px;
-            border-radius: 60px;
 
-        }
-        .perfil-container{
-            margin-top: 50px;
-            height: fit-content;
-            padding: 30px 20px;
-            padding-top: 50px;
-        }
-        .perfil-header h1{
-            font-family: sans-serif;
-            font-weight: lighter;
-        }
-        .perfil-header .datos-wrapper .correo-usuario{
-            font-size: small;
-        }
-        .datos-wrapper{
+        /* Header con Efecto de Profundidad */
+        .perfil-header {
+            position: relative;
             display: flex;
-            gap: 5px;
             flex-direction: column;
-        }
-        .perfil-header .datos-wrapper .btn{
-            background: wheat;
-            padding: 5px 15px;
-            border: 1px solid wheat;
+            align-items: center;
+            text-align: center;
+            background: var(--accent-gradient);
+            color: #f3e3c3;
+            padding: 40px 20px;
             border-radius: 30px;
-            color: black;
-            font-weight: bolder;
-            width: fit-content;
-            font-size: smaller;
-            margin: 10px 0;
+            box-shadow: 0 15px 35px rgba(59, 31, 43, 0.3);
+            overflow: hidden;
+            margin-bottom: 30px;
         }
 
-        .perfil-opciones{
-            margin-top: 30px;
+        /* Decoración de fondo */
+        .perfil-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
         }
-        
-        .perfil-opciones .opcion{
-            height: 40px;
-            border-bottom: 2px solid black;
-            padding: 30px;
-            padding-bottom: 50px;
+
+        .perfil-header img {
+            height: 110px;
+            width: 110px;
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .perfil-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .user-tag {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        /* Grid de Opciones Estilizado */
+        .opciones-grid {
             display: flex;
-            justify-content: space-between;
-        }
-        .perfil-opciones .opcion a{
-            font-size: larger;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .perfil-opciones .opcion a i{
-            margin-right: 30px;
+        .opcion {
+            background: var(--white);
+            padding: 18px 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .perfil-opciones .opcion i{
-            margin-left: 20px;
+
+        .opcion:hover {
+            transform: translateX(10px);
+            border-color: var(--gold-soft);
+            box-shadow: 5px 10px 20px rgba(59, 31, 43, 0.05);
+        }
+
+        .opcion-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .opcion-info i {
+            font-size: 1.4rem;
+            color: #7b3f61;
+            width: 30px;
+            text-align: center;
+        }
+
+        .opcion-info span {
+            font-family: 'EB Garamond', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Vista previa de Galería mejorada */
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+
+        .gallery-preview img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: 0.3s;
+        }
+
+        .gallery-preview img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        #salir {
+            margin-top: 10px;
+            border-color: rgba(255, 0, 0, 0.1);
+        }
+
+        #salir i { color: #8b0000; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
+
     <header></header>
 
-    <div class="perfil-container">
-        <div class="perfil-header">
-            <img src="Imagenes/Turista1.jpg" alt="" srcset="">
-            <div class="datos-wrapper">
-                <h2 class="nombre-usuario">Brenda Montalvo</h2>
-                <p class="correo-usuario">bren1997@gmail.com</p>
-                <a href="" class="btn">Editar Perfil</a>
-            </div>
-        </div>
-        <div class="perfil-opciones">
-            <div class="opcion">
-                <a><i class="fa-regular fa-heart"></i> Favoritos</a>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-            </div>
-            <style>
-                    .gallery-preview{
-                        display: flex;
-                        gap: 10px;
-                        flex-wrap: wrap;
-                        margin-top: 24px;
-                        justify-content: center;
-                    }
-                    .gallery-preview img{
-                        height: 100px;
-                        border-radius: 15%;
-                    }
-                    .opcion#galeria{
-                        height: fit-content;
-                        padding-bottom: 30px;
-                        display: block;
-                    }
-                    .opcion#salir{
-                        border-bottom: none;
-                    }
-                </style>
-            <div class="opcion" id="galeria">
-                <a><i class="fa-regular fa-image"></i> Mi Galería</a>
+    <main class="perfil-container">
+        <section class="perfil-header">
+            <img src="Imagenes/Turista1.jpg" alt="Foto de perfil">
+            <h2>Brenda Montalvo</h2>
+            <p style="font-family: 'EB Garamond', serif;">@Bren_Moon</p>
+            <div class="user-tag">Reseñador Nivel Oro</div>
+        </section>
+
+        <div class="opciones-grid">
+            
+            <div style="background: white; border-radius: 20px; padding-bottom: 15px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                <a href="galeria.html" class="opcion" style="border: none; margin-bottom: 0;">
+                    <div class="opcion-info">
+                        <i class="fa-regular fa-image"></i>
+                        <span>Mi Galería</span>
+                    </div>
+                    <i class="fa fa-caret-right"></i>
+                </a>
                 <div class="gallery-preview">
-                    <img src="Imagenes/Turista1.jpg" alt="">
-                    <img src="Imagenes/Turista2.jpg" alt="">
-                    <img src="Imagenes/Turista3.jpg" alt="">
-                    <img src="Imagenes/Turista4.jpg" alt="">
-                    <img src="Imagenes/Turista5.jpg" alt="">
-                    <img src="Imagenes/Turista6.jpg" alt="">
+                    <img src="Imagenes/Turista1.jpg" alt="1">
+                    <img src="Imagenes/Turista2.jpg" alt="2">
+                    <img src="Imagenes/Turista3.jpg" alt="3">
                 </div>
             </div>
-            <div class="opcion">
-                <a href="reseñas.html"><i class="fa-regular fa-star"></i> Mis Reseñas</a>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-            </div>
-            <div class="opcion">
-                <a href="lugares-visitados.html"><i class="fa-regular fa-square-check"></i> Lugares Visitados</a>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-            </div>
-            <div class="opcion" id="salir">
-                <a><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-            </div>
+
+            <a href="reseñas.html" class="opcion">
+                <div class="opcion-info">
+                    <i class="fa-regular fa-star"></i>
+                    <span>Mis Reseñas</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 0.8rem; color: #888;">24 reseñas</span>
+                    <i class="fa fa-caret-right"></i>
+                </div>
+            </a>
+
+            <a href="lugares-visitados.html" class="opcion">
+                <div class="opcion-info">
+                    <i class="fa-regular fa-square-check"></i>
+                    <span>Mis Conquistas</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 0.8rem; color: #888;">40% completado</span>
+                    <i class="fa fa-caret-right"></i>
+                </div>
+            </a>
+
+            <a href="index.html" class="opcion" id="salir">
+                <div class="opcion-info">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Cerrar Sesión</span>
+                </div>
+                <i class="fa fa-caret-right"></i>
+            </a>
         </div>
-    </div>
+    </main>
 
     <footer></footer>
 
