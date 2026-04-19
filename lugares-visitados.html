@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Conquistas - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .conquistas-container {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Dashboard de Progreso */
+        .progress-dashboard {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--gold-soft);
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(59, 31, 43, 0.1);
+        }
+
+        .progress-dashboard h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            color: #3b1f2b;
+            margin-bottom: 10px;
+        }
+
+        .counter-text {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .counter-text span {
+            color: var(--gold-soft);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* Barra de Progreso Custom */
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .progress-fill {
+            width: 40%; /* 24 de 60 es el 40% */
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Listas por Categoría */
+        .category-section {
+            margin-bottom: 30px;
+        }
+
+        .category-section h3 {
+            font-family: 'EB Garamond', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            color: var(--gold-soft);
+            border-bottom: 1px solid var(--gold-soft);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo del Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .checklist-item.visited {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Checkbox Custom Estilo Barroco */
+        .custom-check {
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--gold-soft);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .checklist-item.visited .custom-check {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: white;
+        }
+
+        .place-name {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            color: #3b1f2b;
+            flex-grow: 1;
+        }
+
+        .checklist-item.visited .place-name {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .badge-mini {
+            font-size: 0.7rem;
+            background: #f3e3c3;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #7b3f61;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="conquistas-container">
+        <section class="progress-dashboard">
+            <h2>Tu Bitácora</h2>
+            <p class="counter-text">Has conquistado <span>24</span> de <span>60</span> joyas ocultas</p>
+            
+            <div class="progress-bar-container">
+                <div class="progress-fill"></div>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: #555; font-style: italic;">
+                "¡Sigue así, explorador! Estás a 6 lugares de subir a Nivel Platino."
+            </p>
+        </section>
+
+        <section class="category-section">
+            <h3><i class="fas fa-mountain"></i> Cumbres y Misticismo</h3>
+            
+            <div class="checklist-item visited">
+                <div class="custom-check"><i class="fas fa-check"></i></div>
+                <span class="place-name">Pirámide del Tepozteco</span>
+                <span class="badge-mini">Cultura</span>
+            </div>
+
+            <div class="checklist-item visited">
+                <div class="custom-check"><i class="fas fa-check"></i></div>
+                <span class="place-name">Cerro del Aire</span>
+                <span class="badge-mini">Vistas</span>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <span class="place-name">Cueva del Temazcal</span>
+                <span class="badge-mini">Aventura</span>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h3><i class="fas fa-utensils"></i> Sabores de la Tierra</h3>
+            
+            <div class="checklist-item visited">
+                <div class="custom-check"><i class="fas fa-check"></i></div>
+                <span class="place-name">Mercado de Antojitos</span>
+                <span class="badge-mini">Top 1</span>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <span class="place-name">Panadería Artesanal "La Tradición"</span>
+                <span class="badge-mini">Local</span>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <span class="place-name">Pulquería "El Mitote"</span>
+                <span class="badge-mini">Bebidas</span>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h3><i class="fas fa-paint-brush"></i> Arte y Silencio</h3>
+            
+            <div class="checklist-item visited">
+                <div class="custom-check"><i class="fas fa-check"></i></div>
+                <span class="place-name">Museo Carlos Pellicer</span>
+                <span class="badge-mini">Museo</span>
+            </div>
+
+            <div class="checklist-item">
+                <div class="custom-check"></div>
+                <span class="place-name">Galería de Arte Contemporáneo</span>
+                <span class="badge-mini">Arte</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>

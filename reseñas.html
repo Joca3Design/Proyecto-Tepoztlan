@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reseñas - Tepoztlán Mágico</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <style>
+        .profile-container {
+            margin-top: 70px;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Sección del Perfil y Badge */
+        .profile-header {
+            text-align: center;
+            background: var(--accent-gradient);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--gold-soft);
+            box-shadow: 0 10px 30px rgba(59, 31, 43, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-soft);
+            margin: 0 auto 15px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .gold-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #d4af37, #f3e3c3);
+            color: #3b1f2b;
+            padding: 10px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 2px solid #3b1f2b;
+        }
+
+        .gold-badge i { font-size: 1.2rem; margin-bottom: 2px; }
+
+        .profile-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        /* Estadísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--gold-soft);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: wheat;
+        }
+
+        /* Lista de Reseñas */
+        .review-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--gold-soft);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .place-info h4 {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3rem;
+            color: #3b1f2b;
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 0.8rem;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .review-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+        }
+
+        .review-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .review-stats span i {
+            margin-right: 4px;
+            color: #7b3f61;
+        }
+
+        .review-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            background: none;
+            border: none;
+            color: #3b1f2b;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .btn-action:hover { color: var(--gold-soft); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <header></header>
+
+    <main class="profile-container">
+        <section class="profile-header">
+            <div class="gold-badge">
+                <i class="fas fa-crown"></i>
+                <span style="font-size: small;">NIVEL ORO</span>
+            </div>
+            <img src="Imagenes/Turista1.jpg" alt="Avatar" class="user-avatar">
+            <h2>Brenda Montalvo</h2>
+            <p style="font-family: 'EB Garamond', serif; font-size: 0.9rem; color: wheat;">Exploradora de Tradiciones</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value">24</span>
+                    <span class="stat-label">Reseñas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">1.2k</span>
+                    <span class="stat-label">Vistas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">348</span>
+                    <span class="stat-label">Likes</span>
+                </div>
+            </div>
+        </section>
+
+        <h3 style="font-family: 'EB Garamond', serif; margin-bottom: 20px; color: #3b1f2b; border-bottom: 1px solid var(--gold-soft); padding-bottom: 5px;">Actividad Reciente</h3>
+
+        <article class="review-card">
+            <div class="review-header">
+                <div class="place-info">
+                    <h4>Restaurante Los Colorines</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <span style="font-size: 0.7rem; color: #999;">Hace 2 días</span>
+            </div>
+            <p class="review-text">"La cecina es espectacular y el ambiente te transporta a otra época. Un imperdible de Tepoztlán."</p>
+            <div class="review-footer">
+                <div class="review-stats">
+                    <span><i class="fas fa-heart"></i> 45</span>
+                    <span><i class="fas fa-eye"></i> 210</span>
+                </div>
+                <div class="review-actions">
+                    <button class="btn-action"><i class="far fa-edit"></i></button>
+                    <button class="btn-action"><i class="far fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <article class="review-card">
+            <div class="review-header">
+                <div class="place-info">
+                    <h4>Museo de Arte Prehispánico</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                </div>
+                <span style="font-size: 0.7rem; color: #999;">15 Abr 2026</span>
+            </div>
+            <p class="review-text">"Increíble colección. La museografía es impecable, aunque los domingos hay demasiada gente."</p>
+            <div class="review-footer">
+                <div class="review-stats">
+                    <span><i class="fas fa-heart"></i> 12</span>
+                    <span><i class="fas fa-eye"></i> 89</span>
+                </div>
+                <div class="review-actions">
+                    <button class="btn-action"><i class="far fa-edit"></i></button>
+                    <button class="btn-action"><i class="far fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="include.js"></script>
+</body>
+</html>
