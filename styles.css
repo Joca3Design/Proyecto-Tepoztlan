@@ -114,7 +114,7 @@ h1, h2, h3, .cursive {
 @media (min-width: 1024px) and (max-width: 1440px) {
   /* Laptop-specific adjustments */
     html {
-        zoom: 80%;
+        zoom: 70%;
     }
 }
     
