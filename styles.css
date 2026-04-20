@@ -118,11 +118,16 @@ h1, h2, h3, .cursive {
     }
 }
 
-@media (min-width: 1441px) {
-  /* Desktop monitors */
-    html {
-        zoom: 90%;
-    }
+@media (min-width: 1700px) and (max-width: 2000px) {
+  html {
+    zoom: unset;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1699px) {
+  html {
+    zoom: 70%;
+  }
 }
     
 /* Estado Activo: Entra al marco y se vuelve visible */
