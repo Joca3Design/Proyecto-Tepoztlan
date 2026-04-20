@@ -19,6 +19,7 @@ a{
 
 /* Espacio exterior (lo que se verá en blanco) */
 html {
+    zoom: 90%;
 }
 
 /* Máscaras para ocultar elementos fuera del marco móvil */
