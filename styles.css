@@ -109,12 +109,15 @@ h1, h2, h3, .cursive {
     .nav-overlay {
         left: calc(50% - 225px); 
     }
-    /* Espacio exterior (lo que se verá en blanco) */
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  /* Laptop-specific adjustments */
     html {
         zoom: 90%;
     }
 }
-
+    
 /* Estado Activo: Entra al marco y se vuelve visible */
 .nav-overlay.active {
     transform: translateX(-0.8%);
