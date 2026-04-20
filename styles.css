@@ -17,10 +17,7 @@ a{
     text-decoration: none;
 }
 
-/* Espacio exterior (lo que se verá en blanco) */
-html {
-    zoom: 90%;
-}
+
 
 /* Máscaras para ocultar elementos fuera del marco móvil */
 html::before,
@@ -111,6 +108,10 @@ h1, h2, h3, .cursive {
 @media (min-width: 451px) {
     .nav-overlay {
         left: calc(50% - 225px); 
+    }
+    /* Espacio exterior (lo que se verá en blanco) */
+    html {
+        zoom: 90%;
     }
 }
 
